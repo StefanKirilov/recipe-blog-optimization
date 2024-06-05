@@ -1,12 +1,13 @@
 .top-container {
     min-height: 100%;
-    animation: fade-in .3s linear;
+    animation: fade-in .6s linear;
 }
 
 .recipe-image {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    min-height: 550px;
 }
 
 .blur {
@@ -162,6 +163,7 @@
     .recipe-image {
         height: 100%;
         width: 100%;
+        min-height: 0px;
     }
 
     .top-container {
