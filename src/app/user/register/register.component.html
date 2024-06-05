@@ -1,0 +1,61 @@
+<div class="register-container">
+    <div class="register-image">
+        <div class="blur">
+            <img src="../../../assets/biscuits-wood-1.jpg">
+        </div>
+        <img src="../../../assets/biscuits-wood.jpg" loading="lazy">
+        <div class="contact-me">
+            <h1>РЕГИСТРАЦИЯ</h1>
+        </div>
+    </div>
+    <section class="register-page">
+        <img class='image' src="../../../assets/logo.png" alt='' />
+        <form class='register' #registerForm="ngForm" (ngSubmit)="submitHandler(registerForm)">
+            <div class='container'>
+                <h1>РЕГИСТРАЦИЯ</h1>
+                <label name='email'>Имейл</label>
+                <input type="email" id="email" name="email" placeholder='Напиши имейл...' ngModel email required
+                #emailInput="ngModel"/>
+
+                <!-- MSG ERROR -->
+
+                <div *ngIf="emailInput.touched" class="error">
+                                <div *ngIf="emailInput.errors?.['required']">Полето е празно!</div>
+                                <div *ngIf="emailInput.errors?.['email']">Невалиден имейл!</div>
+                            </div>
+
+                <label name='email'>Име</label>
+                <input type="text" id="name" name="name" placeholder='Напиши име...' ngModel required/>
+
+
+                <label name='password'>Парола</label>
+                <input type="password" id="password" name="password" placeholder='Напиши парола...' ngModel required
+                #passwordInput="ngModel" [appMaxCount]="10" [appMinCount]="6"/>
+
+                <!-- MSG ERROR -->
+
+                <div class="error">
+                                <div *ngIf="passwordInput.errors?.['appMinCount']">Паролата е по-кратка от 6 символа!</div>
+                                <div *ngIf="passwordInput.errors?.['appMaxCount']">Паролата е по-дълга от 10 символа!</div>
+                            </div>
+
+                <label name='password'>Повтори парола</label>
+                <input type="password" id="rePassword" name="rePassword" placeholder='Напиши парола...' ngModel required
+                #passwordInput="ngModel" [appMaxCount]="10" [appMinCount]="6" />
+
+                <!-- MSG ERROR -->
+
+                <div class="error">
+                                <div *ngIf="passwordInput.errors?.['appMinCount']">Паролата е по-кратка от 6 символа!</div>
+                                <div *ngIf="passwordInput.errors?.['appMaxCount']">Паролата е по-дълга от 10 символа!</div>
+                            </div>
+
+                <input class='btn submit' type='submit' value="РЕГИСТРАЦИЯ" />
+
+                <p class="field">
+                    <span>Ако имаш профил натисни <a routerLink="/login">тук</a></span>
+                </p>
+            </div>
+        </form>
+    </section>
+</div>

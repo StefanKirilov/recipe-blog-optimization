@@ -1,0 +1,60 @@
+<div class="wrap-top">
+    <div class="loader" *ngIf="isLoading">
+        <app-spinner />
+    </div>
+    <div class="top-container" *ngIf="!isLoading">
+        <div class="profile-image">
+            <div class="blur">
+                <img src="../../../assets/bread-1.jpg">
+            </div>
+            <img src="../../../assets/bread.jpg" loading="lazy">
+            <div class="my-profile">
+                <h1>МОЯТ ПРОФИЛ</h1>
+            </div>
+        </div>
+        <div class="profile">
+            <div class="image">
+                <img src="../../../assets/profile-icon.png" alt="img8">
+            </div>
+            <div class="email">
+                <p>{{userName}}</p>
+            </div>
+        </div>
+        <div class="wrap-categoria">
+            <div class="name-categoria">
+                <h1>Мойте рецепти</h1>
+            </div>
+        </div>
+        <div class="myData">
+            <div routerLink="/recipe/details/{{food.id}}" class='container-second' *ngFor="let food of myFood">
+                <div class="container-img">
+                    <div class="img-wrapper">
+                        <button class="btn-img">ВИЖ ПОВЕЧЕ</button>
+                        <img class="image" src="{{food.image}}" />
+                    </div>
+                </div>
+                <div class='container-items'>
+                    <h1> <a>{{food.name}}</a> </h1>
+                </div>
+            </div>
+        </div>
+        <div class="wrap-categoria">
+            <div class="name-categoria">
+                <h1>Любими рецепти</h1>
+            </div>
+        </div>
+        <div class="likeFood">
+            <div routerLink="/recipe/details/{{food.id}}" class='container-second' *ngFor="let food of likeFood">
+                <div class="container-img">
+                    <div class="img-wrapper">
+                        <button class="btn-img">ВИЖ ПОВЕЧЕ</button>
+                        <img class="image" src="{{food.image}}" />
+                    </div>
+                </div>
+                <div class='container-items'>
+                    <h1> <a>{{food.name}}</a> </h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

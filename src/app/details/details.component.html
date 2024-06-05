@@ -1,0 +1,51 @@
+<div class="top-container">
+    <div class="loader">
+        <div class="recipe-image">
+            <div class="blur">
+                <img src="../../assets/vege2-1.jpg">
+            </div>
+            <img src="../../assets/vege2.jpg" loading="lazy">
+            <div class="contact-me">
+                <h1>РЕЦЕПТА</h1>
+            </div>
+        </div>
+    <div class="wrapper" *ngFor="let item of food">
+        <h1 class="name">{{item.name}}</h1>
+        <div class="content">
+            <div class="wrapper-1">
+                <img src="{{item.image}}" alt="">
+                <div class="buttons" *ngIf="isUser">
+                    <a (click)="delFood()">ПРЕМАХНИ</a>
+                </div>
+                <div  *ngIf="haveLoginUser">
+                    <div class="buttons like" *ngIf="!isUser">
+                        <div *ngIf="!isLike">
+                            <a (click)="likeFood()">Добави в любими</a>   
+                        </div>
+                        <div *ngIf="isLike">
+                            <a (click)="unlikeFood()">Премахни от любими</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-text">
+                <h3>Харесвания:</h3>
+                <p>{{item.likes}}</p>
+                <h3>Порции:</h3>
+                <p>{{item.count}}</p>
+                <h3>Време за приготвяне:</h3>
+                <p>{{item.time}}</p>
+                <!-- <h3>Продукти:</h3>
+                <p class="products">{{item.products}}</p>
+                <h3>Начин на приготвяне:</h3>
+                <p class="way">{{item.way}}</p> -->
+            </div>
+        </div>
+        <div class="wrapper-2">
+            <h3>Продукти:</h3>
+            <p class="products">{{item.products}}</p>
+            <h3>Начин на приготвяне:</h3>
+            <p class="way">{{item.way}}</p>
+        </div>
+    </div>
+</div>

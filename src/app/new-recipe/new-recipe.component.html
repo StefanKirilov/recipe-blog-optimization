@@ -1,0 +1,79 @@
+<div class="new-container">
+    <div class="new-image">
+        <div class="blur">
+            <img src="../../assets/vege-1.jpg">
+        </div>
+        <img src="../../assets/vege.jpg" loading="lazy">
+        <div class="contact-me">
+            <h1>СЪЗДАЙ СВОЯ РЕЦЕПТА</h1>
+        </div>
+    </div>
+    <section class="new-page" >
+        <img class='image' src="../../../assets/logo.png" alt="" />
+        <form class='food-form' #foodForm="ngForm" (ngSubmit)="submitHandler(foodForm)">
+            <div class='container'>
+                <h1>НОВА РЕЦЕПТА</h1>
+                <label name='name'>Име</label>
+                <input type="text" id="name" name="name" placeholder='Име на ястието...' ngModel required #nameInput="ngModel"/>
+    
+                 <!-- MSG ERROR -->
+    
+                <div *ngIf="nameInput.touched" class="error">
+                    <div *ngIf="nameInput.errors?.['required']">Полето е празно!</div>
+                </div>
+    
+                <label name='time'>Време за приготвяне</label>
+                <p>(в минути)</p>
+                <input type="text" id="time" name="time" placeholder='Време за приготвяне...' ngModel required #timeInput="ngModel"/>
+    
+                <!-- MSG ERROR -->
+    
+                <div *ngIf="timeInput.touched" class="error">
+                    <div *ngIf="timeInput.errors?.['required']">Полето е празно!</div>
+                </div>
+
+                <label name='count'>Брой порции</label>
+                <input type="text" id="count" name="count" placeholder='Брой порции...' ngModel required #countInput="ngModel"/>
+    
+                <!-- MSG ERROR -->
+    
+                <div *ngIf="countInput.touched" class="error">
+                    <div *ngIf="countInput.errors?.['required']">Полето е празно!</div>
+                </div>
+
+                <label name='products'>Продукти</label>
+                <p>(всеки на нов ред)</p>
+                <!-- <input type="text" id="products" name="products" placeholder='Enter products...' ngModel required #productsInput="ngModel"/> -->
+                <textarea name="products" id="products" cols="30" rows="10" ngModel required #productsInput="ngModel"></textarea>
+    
+                <!-- MSG ERROR -->
+    
+                <div *ngIf="productsInput.touched" class="error">
+                    <div *ngIf="productsInput.errors?.['required']">Полето е празно!</div>
+                </div>
+
+                <label name='way'>Начин на приготвяне</label>
+                <!-- <input type="text" id="way" name="way" placeholder='Enter way to cook...' ngModel required #wayInput="ngModel"/> -->
+                <textarea name="way" id="way" cols="30" rows="10" ngModel required #wayInput="ngModel"></textarea>
+    
+                <!-- MSG ERROR -->
+    
+                <div *ngIf="wayInput.touched" class="error">
+                    <div *ngIf="wayInput.errors?.['required']">Полето е празно!</div>
+                </div>
+
+                <label name='image'>Снимка</label>
+                <input type="text" id="image" name="image" placeholder='Url...' ngModel required #imageInput="ngModel"/>
+    
+                <!-- MSG ERROR -->
+    
+                <div *ngIf="imageInput.touched" class="error">
+                    <div *ngIf="imageInput.errors?.['required']">Полето е празно!</div>
+                </div>
+    
+                <input class='btn submit' type='submit' value="СЪЗДАЙ" />
+
+        </div>
+    </form>
+    </section>
+    </div>
